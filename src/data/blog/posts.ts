@@ -49,7 +49,7 @@ export const blogPosts: BlogPostFull[] = [
     title: "Valorant crosshair settings for ranked — cheats guide",
     slug: "valorant-crosshair-settings-tips",
     image: "/images/blog/valorant-crosshair-settings-tips.png",
-    desc: "Crosshair color, gap, movement error, and ADS copy settings that stay readable in ranked—plus when to graduate to private valorant cheats.",
+    desc: "Crosshair color, gap, and ADS settings for ranked readability—plus when to graduate to private valorant cheats on PC.",
     date: "Aug 19, 2026",
     readTime: "7 min read",
     body: [
@@ -786,7 +786,7 @@ export const blogPosts: BlogPostFull[] = [
     title: "Valorant external cheat guide",
     slug: "valorant-external-cheat-guide",
     image: "/images/blog/valorant-external-cheat-guide.png",
-    desc: "Why external valorant cheats matter, how the external loader works on PC and what makes private software safer than free tools.",
+    desc: "Why external valorant cheats matter, how the loader works on PC, and what makes private software safer than free tools.",
     date: "Aug 11, 2026",
     readTime: "16 min read",
     body: [

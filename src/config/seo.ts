@@ -58,6 +58,16 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed}${suffix}`;
 }
 
+/** SERP-safe meta description (≤155 chars; word-boundary trim). */
+export function clampMetaDescription(text: string, maxLen = 155): string {
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLen) return normalized;
+  const slice = normalized.slice(0, maxLen - 1);
+  const lastSpace = slice.lastIndexOf(' ');
+  const trimmed = lastSpace > 60 ? slice.slice(0, lastSpace) : slice;
+  return `${trimmed.trimEnd()}…`;
+}
+
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 export const DEFAULT_OG_IMAGE_HEIGHT = 630;
 

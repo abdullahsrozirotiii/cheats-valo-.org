@@ -13,7 +13,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     // gscNote: Keep primary keyword "valorant cheats" near front; trim if title truncates in SERP.
     title: 'Valorant Cheats – Aimbot, ESP & Wallhack | CheatsValo',
     description:
-      'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers. Updated every Vanguard patch. Guides and status at cheatsvalo.org.',
+      'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers. Patch guides and live status at cheatsvalo.org.',
   },
   '/products/valorant-cheats/': {
     title: 'Aimbot – VALORANT Cheats — Product Details | CheatsValo',
@@ -68,7 +68,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/privacy/': {
     title: 'Privacy – analytics, cookies & contact data | CheatsValo',
     description:
-      'Privacy: How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support. Policy for CheatsValo visitors.',
+      'Privacy: how cheatsvalo.org uses analytics, cookies, and contact data when you browse or contact support. CheatsValo policy.',
   },
   '/about/': {
     title: 'Cheats tiers – what we publish | CheatsValo',
