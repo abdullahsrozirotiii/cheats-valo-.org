@@ -33,7 +33,7 @@ const isSinglePlan = plans.length === 1;
       <div class="min-w-0 text-left">
         <p class="text-xs font-medium uppercase tracking-wider text-muted-foreground">Checkout</p>
         <h2 id={`checkout-${product.slug}`} class="text-base font-semibold leading-snug">
-          {isSinglePlan ? 'Purchase option' : 'Select subscription'}
+          {isSinglePlan ? 'Purchase option' : 'Choose Your Duration'}
         </h2>
       </div>
     </div>
@@ -42,7 +42,7 @@ const isSinglePlan = plans.length === 1;
       <RadioGroup
         defaultValue={defaultPlan.id}
         name={`plan-${product.slug}`}
-        legend={isSinglePlan ? 'Purchase option' : 'Select subscription'}
+        legend={isSinglePlan ? 'Purchase option' : 'Choose Your Duration'}
         class="flex flex-col gap-2"
       >
         {
@@ -50,7 +50,12 @@ const isSinglePlan = plans.length === 1;
             <label class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-border bg-background p-3.5 transition-colors has-data-checked:border-primary has-data-checked:bg-primary/10">
               <span class="flex min-w-0 items-center gap-3">
                 <RadioGroupItem value={plan.id} variant="primary" />
-                <span class="text-sm font-medium">{plan.label}</span>
+                <span class="min-w-0">
+                  <span class="block text-sm font-medium">{plan.label}</span>
+                  {plan.detail ? (
+                    <span class="block text-xs text-muted-foreground">{plan.detail}</span>
+                  ) : null}
+                </span>
               </span>
               <span class="shrink-0 text-sm font-semibold tabular-nums text-foreground">
                 {formatPlanPrice(plan.priceUsd)}
@@ -95,7 +100,7 @@ const isSinglePlan = plans.length === 1;
       const plansRaw = root.getAttribute('data-plans');
       if (!buyUrl || !plansRaw) return;
 
-      type Plan = { id: string; priceUsd: number; priceNote: string };
+      type Plan = { id: string; priceUsd: number; priceNote: string; detail?: string };
       let plans: Plan[] = [];
       try {
         plans = JSON.parse(plansRaw) as Plan[];

@@ -28,7 +28,7 @@ export const en: Translations = {
     subtitle:
       'Player ESP, agent and spike info, skeleton and health readouts, rank labels, aimbot, and a streamproof overlay for VALORANT on Windows.',
     intro:
-      'VALORANT matches are five-on-five rounds on fixed maps with agents, abilities, and a spike objective. This Windows menu covers player ESP, agent ESP, spike ESP, skeleton ESP, health and rank readouts, aimbot, and a streamproof overlay. Monthly is $30 for 30 days. Three months is $60. Lifetime is $150 and is the best deal if you keep playing. Check Status before you buy.',
+      'VALORANT matches are five-on-five rounds on fixed maps with agents, abilities, and a spike objective. This Windows menu covers player ESP, agent ESP, spike ESP, skeleton ESP, health and rank readouts, aimbot, and a streamproof overlay. Lite, Pro, and Elite are $35 for 31 days. Lifetime is $150 with unlimited access. Check Status before you buy.',
     ctaPrimary: 'View products',
     ctaDiscord: 'Join Discord',
     modesLabel: 'Valorant modes',

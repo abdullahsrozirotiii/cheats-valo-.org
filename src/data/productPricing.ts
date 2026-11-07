@@ -1,24 +1,52 @@
-export type ProductPlanId = 'monthly' | 'lifetime' | 'onetime';
+export type ProductPlanId = 'monthly' | 'lifetime' | 'lite' | 'pro' | 'elite';
 
 export interface ProductPlan {
   id: ProductPlanId;
   label: string;
   priceUsd: number;
   priceNote: string;
+  /** Shown under the plan label in checkout (e.g. “31 days of access”). */
+  detail?: string;
 }
 
-const standardPlans: ProductPlan[] = [
-  { id: 'monthly', label: 'Monthly', priceUsd: 35, priceNote: 'USD / month' },
-  { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time' },
+const access31Days = '31 days of access';
+const unlimitedAccess = 'Unlimited access';
+
+/** Monthly + lifetime (UGC, utilities, etc.). */
+const subscriptionPlans: ProductPlan[] = [
+  {
+    id: 'monthly',
+    label: 'Monthly',
+    priceUsd: 35,
+    priceNote: 'USD',
+    detail: access31Days,
+  },
+  {
+    id: 'lifetime',
+    label: 'Lifetime',
+    priceUsd: 150,
+    priceNote: 'USD · one-time',
+    detail: unlimitedAccess,
+  },
 ];
 
-const ugcPlans: ProductPlan[] = [
-  { id: 'onetime', label: 'One-time access', priceUsd: 50, priceNote: 'USD · one-time' },
+/** Valo Cheats: Lite, Pro, Elite monthly + lifetime (Zadeyo tier picker). */
+const valoCheatsPlans: ProductPlan[] = [
+  { id: 'lite', label: 'Lite', priceUsd: 35, priceNote: 'USD', detail: access31Days },
+  { id: 'pro', label: 'Pro', priceUsd: 35, priceNote: 'USD', detail: access31Days },
+  { id: 'elite', label: 'Elite', priceUsd: 35, priceNote: 'USD', detail: access31Days },
+  {
+    id: 'lifetime',
+    label: 'Lifetime',
+    priceUsd: 150,
+    priceNote: 'USD · one-time',
+    detail: unlimitedAccess,
+  },
 ];
 
 export function getProductPlans(productSlug: string): ProductPlan[] {
-  if (productSlug === 'ugc') return ugcPlans;
-  return standardPlans;
+  if (productSlug === 'valo-cheats') return valoCheatsPlans;
+  return subscriptionPlans;
 }
 
 export function formatPlanPrice(usd: number): string {
