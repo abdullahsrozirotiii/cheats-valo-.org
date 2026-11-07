@@ -1,4 +1,4 @@
-export type ProductPlanId = 'monthly' | 'lifetime' | 'lite' | 'pro' | 'elite';
+export type ProductPlanId = 'monthly' | 'lifetime' | 'xray' | 'private' | 'pro';
 
 export interface ProductPlan {
   id: ProductPlanId;
@@ -30,11 +30,11 @@ const subscriptionPlans: ProductPlan[] = [
   },
 ];
 
-/** Valo Cheats: Lite, Pro, Elite monthly + lifetime (Zadeyo tier picker). */
+/** Valo Cheats — Zadeyo checkout tier names (xray, private, pro, Lifetime). */
 const valoCheatsPlans: ProductPlan[] = [
-  { id: 'lite', label: 'Lite', priceUsd: 35, priceNote: 'USD', detail: access31Days },
-  { id: 'pro', label: 'Pro', priceUsd: 35, priceNote: 'USD', detail: access31Days },
-  { id: 'elite', label: 'Elite', priceUsd: 35, priceNote: 'USD', detail: access31Days },
+  { id: 'xray', label: 'xray', priceUsd: 35, priceNote: 'USD' },
+  { id: 'private', label: 'private', priceUsd: 35, priceNote: 'USD' },
+  { id: 'pro', label: 'pro', priceUsd: 35, priceNote: 'USD' },
   {
     id: 'lifetime',
     label: 'Lifetime',
