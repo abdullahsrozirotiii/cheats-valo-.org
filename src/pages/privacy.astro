@@ -7,6 +7,7 @@ import { breadcrumbSchema, webPageSchema } from '../utils/schema';
 
 const content = t.legalPages.privacy;
 const seo = resolvePageSeo('/privacy/');
+const pageHeading = 'Privacy Policy — analytics, cookies & contact data';
 ---
 
 <BaseLayout
@@ -14,8 +15,8 @@ const seo = resolvePageSeo('/privacy/');
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: content.title,
-      description: content.description,
+      name: pageHeading,
+      description: seo.description,
       url: '/privacy/',
     }),
     breadcrumbSchema([
@@ -25,7 +26,7 @@ const seo = resolvePageSeo('/privacy/');
   ]}
 >
   <LegalPage
-    title={content.title}
+    title={pageHeading}
     description={content.description}
     breadcrumbLabel="Privacy Policy"
     sections={content.sections}

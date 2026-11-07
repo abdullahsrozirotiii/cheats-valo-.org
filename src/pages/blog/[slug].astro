@@ -65,10 +65,14 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, '');
 }
 const published = parseBlogDate(post.date);
+const documentTitle =
+  post.slug === 'valorant-cheats-features-guide'
+    ? 'Features: scripts, bots, ESP and more | CheatsValo'
+    : pageTitle(post.title);
 ---
 
 <BaseLayout
-  title={pageTitle(post.title)}
+  title={documentTitle}
   description={post.desc}
   ogType="article"
   ogImage={post.image}

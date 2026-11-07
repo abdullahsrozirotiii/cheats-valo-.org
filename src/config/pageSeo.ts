@@ -46,7 +46,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
   },
   '/blog/': {
-    title: 'Guides – ranked config tips for valorant cheats | CheatsValo',
+    title: 'Guides – ranked config tips for Valorant | CheatsValo',
     description:
       'Setup guides, Lite vs Pro comparisons, Vanguard patch checklists, and ranked config tips for valorant cheats at cheatsvalo.org.',
   },
@@ -71,7 +71,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Privacy: How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support. Policy for CheatsValo visitors.',
   },
   '/about/': {
-    title: 'Cheats Tiers – What CheatsValo publishes | CheatsValo',
+    title: 'Cheats tiers – what we publish | CheatsValo',
     description:
       'Cheats tiers: Lite, Pro, and Elite modules, utilities, setup guides, and Vanguard status notes for PC players at cheatsvalo.org.',
   },

@@ -41,9 +41,11 @@ Post-build scripts now resolve `dist/` or `dist/client/` via [`scripts/lib/dist-
 ## Post-deploy checks
 
 - https://cheatsvalo.org/
-- https://cheatsvalo.org/sitemap.xml
+- https://cheatsvalo.org/sitemap.xml — expect **HTTP 200** and `Content-Type: application/xml` (see `public/_headers` in `dist/`). Quick check: `curl -I https://cheatsvalo.org/sitemap.xml`
 - https://cheatsvalo.org/robots.txt
 - https://cheatsvalo.org/go/valorant/ → external checkout (302)
+
+After a **preview** build with `SITE` set to your `*.workers.dev` origin, open `/sitemap.xml` on that host and confirm every `<loc>` uses the same origin as the page you are auditing (canonical/hreflang must match).
 
 ## Successful build log
 

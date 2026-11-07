@@ -651,6 +651,7 @@ export const en: Translations = {
           heading: 'Support',
           paragraphs: [
             'Questions about compatibility, loader errors, or checkout are handled through Discord and email support. Include your order email, Riot Client account, and Windows version when opening a ticket.',
+            'Editorial pages list each cheats tier with module summaries and links to setup guides so you can see what Lite, Pro, and Elite include before opening Discord.',
           ],
         },
       ],
@@ -670,6 +671,7 @@ export const en: Translations = {
           heading: 'How we use data',
           paragraphs: [
             'Analytics help us understand which guides and product pages are useful so we can improve content and fix broken links. Support tickets may retain the email address and message content you provide until the issue is resolved.',
+            'This privacy policy applies only to cheatsvalo.org. Checkout and license portals run on separate domains with their own policies when you complete a purchase.',
           ],
         },
         {
