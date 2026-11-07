@@ -323,7 +323,7 @@ export const en: Translations = {
         title: 'Valorant crosshair settings for ranked',
         slug: 'valorant-crosshair-settings-tips',
         image: '/images/blog/valorant-crosshair-settings-tips.png',
-        desc: 'Crosshair color, movement error, and ADS copy settings before you enable aimbot modules.',
+        desc: 'Crosshair color, gap, and ADS settings for ranked—before you enable aimbot modules on PC.',
         date: 'Aug 19, 2026',
         readTime: '6 min read',
       },
