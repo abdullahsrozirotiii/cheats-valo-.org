@@ -18,7 +18,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/products/valorant-cheats/': {
     title: 'Aimbot – VALORANT cheats hub | CheatsValo',
     description:
-      'Undetected aimbot, player ESP, and recoil control across Lite, Pro, and Elite tiers. Monthly and lifetime access. Patch-day updates at cheatsvalo.org.',
+      'Undetected aimbot, player ESP, and recoil control. Monthly and lifetime access. Updated for current patches at cheatsvalo.org.',
   },
   '/products/valorant-cheats/valo-cheats/': {
     title: 'Valo Cheats (Lite, Pro, Elite) | Valorant Cheats',
