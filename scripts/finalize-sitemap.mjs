@@ -3,6 +3,7 @@ import path from 'node:path';
 import { resolveDistDir } from './lib/dist-dir.mjs';
 
 const distDir = resolveDistDir();
+const siteOrigin = (process.env.SITE ?? 'https://cheatsvalo.org').replace(/\/$/, '');
 const source = path.join(distDir, 'sitemap-0.xml');
 
 if (!fs.existsSync(source)) {
@@ -48,7 +49,7 @@ fs.writeFileSync(path.join(distDir, 'sitemap.xml'), formatted, 'utf8');
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://cheatsvalo.org/sitemap.xml</loc>
+    <loc>${siteOrigin}/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>

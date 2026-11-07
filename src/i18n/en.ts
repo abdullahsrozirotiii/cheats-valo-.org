@@ -678,6 +678,13 @@ export const en: Translations = {
           ],
         },
         {
+          heading: 'Your choices',
+          paragraphs: [
+            'You can disable analytics cookies in your browser or use opt-out tools offered by Google where applicable. Clearing local storage removes theme preferences stored on cheatsvalo.org but does not affect loader licenses on the checkout portal.',
+            'We do not sell personal information to third parties. Aggregated analytics may be reviewed by contractors under confidentiality to improve site performance and fix broken links.',
+          ],
+        },
+        {
           heading: 'Support',
           paragraphs: [
             'For privacy questions, use the options on the Support page. Purchase and refund rules are in our Terms & Conditions.',

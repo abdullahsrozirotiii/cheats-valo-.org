@@ -3,8 +3,10 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
+const siteOrigin = (process.env.SITE ?? 'https://cheatsvalo.org').replace(/\/$/, '');
+
 export default defineConfig({
-  site: 'https://cheatsvalo.org',
+  site: siteOrigin,
   trailingSlash: 'always',
   redirects: {
     '/cheats/': '/products/valorant-cheats/',

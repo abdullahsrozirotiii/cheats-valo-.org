@@ -15,9 +15,12 @@ This repo is a **static Astro** site. Use **Cloudflare Pages (Git)**, not `npx w
 | Root directory | `/` |
 | Node.js version | `22` |
 
-Optional build environment variable:
+Optional build environment variables:
 
 - `INDEXNOW_KEY` — if set, post-build IndexNow ping runs; otherwise skipped.
+- `SITE` — canonical origin for sitemap `<loc>`, `<link rel="canonical">`, and hreflang. **Production:** leave unset (defaults to `https://cheatsvalo.org`). **Workers preview re-audit:** set to your preview origin, e.g. `https://cheats-valo--org.abdullahsyed2326.workers.dev` (no trailing slash), rebuild, and redeploy that preview.
+
+`astro.config.mjs`, `src/config/seo.ts`, and `scripts/finalize-sitemap.mjs` all read `SITE` at build time.
 
 ## Custom domain
 

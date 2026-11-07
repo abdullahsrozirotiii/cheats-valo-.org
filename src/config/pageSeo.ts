@@ -11,14 +11,14 @@ export interface PageSeoEntry {
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     // gscNote: Keep primary keyword "valorant cheats" near front; trim if title truncates in SERP.
-    title: 'Valorant Cheats & Hacks | Aimbot, ESP & Wallhack',
+    title: 'Valorant Cheats – Aimbot, ESP & Wallhack | CheatsValo',
     description:
-      'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers updated every Vanguard patch at cheatsvalo.org.',
+      'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers. Updated every Vanguard patch. Guides and status at cheatsvalo.org.',
   },
   '/products/valorant-cheats/': {
-    title: 'Valorant Cheats & Utilities | CheatsValo',
+    title: 'Aimbot – VALORANT cheats hub | CheatsValo',
     description:
-      'Valorant cheats plus HWID spoofer, UGC, and skin changer utilities. Lite, Pro, and Elite tiers on cheatsvalo.org.',
+      'Undetected aimbot, player ESP, and recoil control across Lite, Pro, and Elite tiers. Monthly and lifetime access. Patch-day updates at cheatsvalo.org.',
   },
   '/products/valorant-cheats/valo-cheats/': {
     title: 'Valo Cheats (Lite, Pro, Elite) | Valorant Cheats',
@@ -46,18 +46,19 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
   },
   '/blog/': {
-    title: 'Valorant Cheats Guides & Patch Notes',
+    title: 'Guides – ranked config tips for valorant cheats | CheatsValo',
     description:
-      'Setup guides, Lite vs Pro comparisons, Vanguard patch checklists, and ranked config tips for valorant cheats.',
+      'Setup guides, Lite vs Pro comparisons, Vanguard patch checklists, and ranked config tips for valorant cheats at cheatsvalo.org.',
   },
   '/forum/': {
-    title: 'Valorant Community Forum | CheatsValo',
-    description: 'Join Valorant players to discuss agents, configs, patch changes, guides, and community moments.',
+    title: 'Community – Valorant forum for configs & guides | CheatsValo',
+    description:
+      'Join the Valorant community forum: agents, configs, patch changes, guides, and player moments. Discuss tiers at cheatsvalo.org.',
   },
   '/faq/': {
-    title: 'FAQ | Valorant Cheats, Products & Setup',
+    title: 'Cheats – FAQ, products & setup | CheatsValo',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at cheatsvalo.org.',
+      'Answers on cheats tiers, map hack, scripts, HWID tools, checkout, and blog guides at cheatsvalo.org. Lite, Pro, and Elite explained.',
   },
   '/terms/': {
     title: 'Terms & Conditions | CheatsValo',
@@ -65,14 +66,14 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Purchase terms, license use, and refund policy for CheatsValo products sold through cheatsvalo.org.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | CheatsValo',
+    title: 'Privacy – analytics, cookies & contact data | CheatsValo',
     description:
-      'How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support.',
+      'Privacy: How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support. Policy for CheatsValo visitors.',
   },
   '/about/': {
-    title: 'About CheatsValo',
+    title: 'About CheatsValo | Valorant cheats tiers & guides',
     description:
-      'What CheatsValo publishes: Valorant cheat tiers, utilities, guides, and status notes at cheatsvalo.org.',
+      'What CheatsValo publishes: Valorant cheat tiers, utilities, setup guides, and Vanguard status notes for PC players at cheatsvalo.org.',
   },
   '/support/': {
     title: 'Support | CheatsValo',

@@ -2,7 +2,13 @@ import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
 
-export const SITE_ORIGIN = `https://${t.site.domain}`;
+function resolveSiteOrigin(): string {
+  const fromEnv = import.meta.env.SITE as string | undefined;
+  if (fromEnv?.trim()) return fromEnv.replace(/\/$/, '');
+  return `https://${t.site.domain}`;
+}
+
+export const SITE_ORIGIN = resolveSiteOrigin();
 
 export const DEFAULT_OG_IMAGE = '/images/gameplay/valorant-esp-wallhack.png';
 

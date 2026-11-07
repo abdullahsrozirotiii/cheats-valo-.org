@@ -3,7 +3,7 @@ import type { BlogPostFull } from './types';
 export const blogPosts: BlogPostFull[] = [
   {
     tag: "Guides",
-    title: "Valorant Practice Range & custom game training guide",
+    title: "Valorant Practice Range & custom game training — cheats guide",
     slug: "valorant-practice-mode-guide",
     image: "/images/blog/valorant-practice-mode-guide.png",
     desc: "Use the Practice Range and custom game options to warm up aim and abilities before ranked—not the same as private valorant cheats.",
@@ -46,7 +46,7 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Guides",
-    title: "Valorant crosshair settings for ranked",
+    title: "Valorant crosshair settings for ranked — cheats guide",
     slug: "valorant-crosshair-settings-tips",
     image: "/images/blog/valorant-crosshair-settings-tips.png",
     desc: "Crosshair color, gap, movement error, and ADS copy settings that stay readable in ranked—plus when to graduate to private valorant cheats.",
@@ -103,10 +103,10 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Features",
-    title: "Valorant cheats features: scripts, bots, ESP and more",
+    title: "Valorant features guide: scripts, bots, ESP and more",
     slug: "valorant-cheats-features-guide",
     image: "/images/blog/valorant-cheats-features-guide.png",
-    desc: "Complete guide to our valorant cheats—Aimbot profiles, Advanced macro presets, Skin Changer, Zoom Hack, ESP and Elite combat macros.",
+    desc: "Cheats features: Complete guide to aimbot profiles, advanced macro presets, Skin Changer, Zoom Hack, ESP, and Elite combat macros for valorant.",
     date: "Aug 18, 2026",
     readTime: "20 min read",
     featured: true,
