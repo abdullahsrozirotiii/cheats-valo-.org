@@ -103,10 +103,10 @@ export const blogPosts: BlogPostFull[] = [
   },
   {
     tag: "Features",
-    title: "Valorant features guide: scripts, bots, ESP and more",
+    title: "Cheats features: scripts, bots, ESP and more",
     slug: "valorant-cheats-features-guide",
     image: "/images/blog/valorant-cheats-features-guide.png",
-    desc: "Cheats features: Complete guide to aimbot profiles, advanced macro presets, Skin Changer, Zoom Hack, ESP, and Elite combat macros for valorant.",
+    desc: "Cheats features: Aimbot profiles, macro presets, Skin Changer, Zoom Hack, ESP, and Elite combat modules for Valorant on PC.",
     date: "Aug 18, 2026",
     readTime: "20 min read",
     featured: true,
