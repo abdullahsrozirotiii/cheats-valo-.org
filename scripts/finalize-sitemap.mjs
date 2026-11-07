@@ -1,12 +1,19 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistDir } from './lib/dist-dir.mjs';
 
-const root = process.cwd();
-const dist = path.join(root, 'dist');
-const source = path.join(dist, 'sitemap-0.xml');
+const distDir = resolveDistDir();
+const source = path.join(distDir, 'sitemap-0.xml');
 
 if (!fs.existsSync(source)) {
-  console.error('finalize-sitemap: dist/sitemap-0.xml not found — run astro build first.');
+  const indexOnly = path.join(distDir, 'sitemap-index.xml');
+  if (fs.existsSync(indexOnly)) {
+    console.warn(
+      `finalize-sitemap: sitemap-0.xml not found under ${distDir} (sitemap-index.xml present) — skipping format step.`,
+    );
+    process.exit(0);
+  }
+  console.error(`finalize-sitemap: sitemap-0.xml not found under ${distDir} — run astro build first.`);
   process.exit(1);
 }
 
@@ -36,7 +43,7 @@ function formatUrlset(xml) {
 }
 
 const formatted = formatUrlset(raw);
-fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
+fs.writeFileSync(path.join(distDir, 'sitemap.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -46,7 +53,7 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
   </sitemap>
 </sitemapindex>
 `;
-fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
-fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
+fs.writeFileSync(path.join(distDir, 'sitemap-index.xml'), indexXml, 'utf8');
+fs.writeFileSync(path.join(distDir, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+console.log(`Sitemap finalized: ${urlCount} URLs → ${path.relative(process.cwd(), distDir)}/sitemap.xml`);

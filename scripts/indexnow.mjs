@@ -1,8 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistDir } from './lib/dist-dir.mjs';
 
-const root = process.cwd();
-const dist = path.join(root, 'dist');
+const distDir = resolveDistDir();
 const key = process.env.INDEXNOW_KEY?.trim();
 const host = process.env.INDEXNOW_HOST?.trim() || 'cheatsvalo.org';
 
@@ -11,7 +11,7 @@ if (!key) {
   process.exit(0);
 }
 
-const sitemapPath = path.join(dist, 'sitemap.xml');
+const sitemapPath = path.join(distDir, 'sitemap.xml');
 if (!fs.existsSync(sitemapPath)) {
   console.warn('IndexNow: dist/sitemap.xml missing — skipping ping.');
   process.exit(0);
@@ -25,7 +25,7 @@ if (urlList.length === 0) {
   process.exit(0);
 }
 
-const keyFile = path.join(dist, `${key}.txt`);
+const keyFile = path.join(distDir, `${key}.txt`);
 fs.writeFileSync(keyFile, key, 'utf8');
 
 const payload = {
