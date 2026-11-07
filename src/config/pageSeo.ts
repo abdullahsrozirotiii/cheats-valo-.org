@@ -71,9 +71,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Privacy: How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support. Policy for CheatsValo visitors.',
   },
   '/about/': {
-    title: 'About CheatsValo | Valorant cheats tiers & guides',
+    title: 'Cheats Tiers – What CheatsValo publishes | CheatsValo',
     description:
-      'What CheatsValo publishes: Valorant cheat tiers, utilities, setup guides, and Vanguard status notes for PC players at cheatsvalo.org.',
+      'Cheats tiers: Lite, Pro, and Elite modules, utilities, setup guides, and Vanguard status notes for PC players at cheatsvalo.org.',
   },
   '/support/': {
     title: 'Support | CheatsValo',

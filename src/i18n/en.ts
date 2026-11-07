@@ -643,6 +643,7 @@ export const en: Translations = {
           heading: 'What we publish',
           paragraphs: [
             'Our site covers Lite, Pro, and Elite cheat tiers, HWID utilities, Skin Changer and account recovery workflows. Blog articles explain ranked-safe configs, patch-day checks, and Vanguard update behavior.',
+            'Cheats tiers on cheatsvalo.org are documented with feature lists, checkout paths, and tier comparison guides so you can pick Lite, Pro, or Elite before loading the operator portal.',
             'Content is updated when patches land or when loader modules shift. Check the homepage status banner and Discord #status before every session.',
           ],
         },
