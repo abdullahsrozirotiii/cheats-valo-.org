@@ -16,9 +16,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers. Updated every Vanguard patch. Guides and status at cheatsvalo.org.',
   },
   '/products/valorant-cheats/': {
-    title: 'Aimbot – VALORANT cheats hub | CheatsValo',
+    title: 'Aimbot – VALORANT Cheats — Product Details | CheatsValo',
     description:
-      'Undetected aimbot, player ESP, and recoil control. Monthly and lifetime access. Updated for current patches at cheatsvalo.org.',
+      'Undetected VALORANT cheats with player ESP, aimbot, and recoil control. Monthly and lifetime access. Updated for current patches.',
   },
   '/products/valorant-cheats/valo-cheats/': {
     title: 'Valo Cheats (Lite, Pro, Elite) | Valorant Cheats',
@@ -56,7 +56,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Join the Valorant community forum: agents, configs, patch changes, guides, and player moments. Discuss tiers at cheatsvalo.org.',
   },
   '/faq/': {
-    title: 'Cheats – FAQ, products & setup | CheatsValo',
+    title: 'Cheats – FAQ for products, setup & guides | CheatsValo',
     description:
       'Answers on cheats tiers, map hack, scripts, HWID tools, checkout, and blog guides at cheatsvalo.org. Lite, Pro, and Elite explained.',
   },
