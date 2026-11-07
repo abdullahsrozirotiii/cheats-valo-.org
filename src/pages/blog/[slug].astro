@@ -50,10 +50,10 @@ function linkify(text: string): string {
       const normalized = normalizeInternalPath(href);
       return `<a href="${normalized}">${label}</a>`;
     })
-    .replace(/(https:\/\/dotacheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/dotacheats\.com/, '');
+    .replace(/(https:\/\/cheatsvalo\.org[^\s.,;)]*)/g, (_match, url: string) => {
+      const path = url.replace(/^https:\/\/cheatsvalo\.org/, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://dotacheats.com${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `https://cheatsvalo.org${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }
@@ -179,8 +179,8 @@ const published = parseBlogDate(post.date);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('dota2')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Buy Dota 2 Cheats
+            <Button as="a" href={checkoutPath('valorant')} variant="primary" aria-label={t.ui.checkoutAria}>
+              Buy Valorant Cheats
               <Icon name="arrowRight" size={17} />
             </Button>
             <Button as="a" href={ROUTES.products} variant="outline">

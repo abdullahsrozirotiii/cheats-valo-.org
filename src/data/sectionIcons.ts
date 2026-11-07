@@ -74,6 +74,7 @@ export const cheatTierIcons: Record<string, IconName> = {
   Lite: 'tierLite',
   Pro: 'tierPro',
   Elite: 'tierElite',
+  Valo: 'crosshair',
 };
 
 export const productCategoryIcons: Record<string, IconName> = {

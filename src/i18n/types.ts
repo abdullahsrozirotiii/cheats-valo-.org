@@ -103,6 +103,7 @@ export interface Translations {
     titleLine1: string;
     titleLine2: string;
     subtitle: string;
+    intro: string;
     ctaPrimary: string;
     ctaDiscord: string;
     modesLabel: string;

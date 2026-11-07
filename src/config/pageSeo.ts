@@ -10,59 +10,74 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    // gscNote: Keep primary keyword "valorant cheats" near front; trim if title truncates in SERP.
+    title: 'Valorant Cheats & Hacks | Aimbot, ESP & Wallhack',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'Valorant cheats for PC ranked: aimbot, ESP, wallhack, and skin changer tiers updated every Vanguard patch at cheatsvalo.org.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+  '/products/valorant-cheats/': {
+    title: 'Valorant Cheats & Utilities | CheatsValo',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Valorant cheats plus HWID spoofer, UGC, and skin changer utilities. Lite, Pro, and Elite tiers on cheatsvalo.org.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/products/valorant-cheats/valo-cheats/': {
+    title: 'Valo Cheats (Lite, Pro, Elite) | Valorant Cheats',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
+      'Compare Lite ESP, Pro aimbot, and Elite full suite. One checkout for private valorant cheats at cheatsvalo.org.',
   },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
+  '/products/valorant-cheats/hwid-spoofer/': {
+    title: 'Valorant HWID Spoofer | CheatsValo',
+    description:
+      'HWID spoofer for Valorant PC: disk and MAC profile tools, verification checklist, portal setup at cheatsvalo.org.',
+  },
+  '/products/valorant-cheats/ugc/': {
+    title: 'Valorant UGC | Ban appeal workspace | CheatsValo',
+    description:
+      'UGC appeal workflows for Riot restrictions and Vanguard cases. Structured disputes—not guaranteed unban.',
+  },
+  '/products/valorant-cheats/unlock-all/': {
+    title: 'Valorant Skin Changer | Unlock All preview | CheatsValo',
+    description:
+      'Preview weapon and agent skins locally on your client. Unlock All utility for Valorant on PC.',
+  },
+  '/products/valorant-cheats/utilities/': {
+    title: 'Valorant Utilities | HWID, UGC & Skin Changer',
     description:
       'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
   },
   '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+    title: 'Valorant Cheats Guides & Patch Notes',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'Setup guides, Lite vs Pro comparisons, Vanguard patch checklists, and ranked config tips for valorant cheats.',
   },
   '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
+    title: 'Valorant Community Forum | CheatsValo',
+    description: 'Join Valorant players to discuss agents, configs, patch changes, guides, and community moments.',
   },
   '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+    title: 'FAQ | Valorant Cheats, Products & Setup',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
+      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at cheatsvalo.org.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
+    title: 'Terms & Conditions | CheatsValo',
     description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
+      'Purchase terms, license use, and refund policy for CheatsValo products sold through cheatsvalo.org.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
+    title: 'Privacy Policy | CheatsValo',
     description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How cheatsvalo.org uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About DotaCheats',
+    title: 'About CheatsValo',
     description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'What CheatsValo publishes: Valorant cheat tiers, utilities, guides, and status notes at cheatsvalo.org.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'Support | CheatsValo',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Get help with loader setup, HWID, and checkout for Valorant cheat tiers and utilities.',
   },
 };
 

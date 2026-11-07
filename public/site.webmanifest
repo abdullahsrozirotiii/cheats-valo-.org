@@ -1,7 +1,7 @@
 {
-  "name": "DotaCheats",
-  "short_name": "DotaCheats",
-  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "name": "Valorant Cheats",
+  "short_name": "CheatsValo",
+  "description": "Valorant cheats with aimbot, ESP, wallhack and skin changer for PC ranked.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

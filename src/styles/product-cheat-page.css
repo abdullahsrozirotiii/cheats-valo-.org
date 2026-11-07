@@ -51,7 +51,7 @@
 .products-carousel__stage .products-carousel__arrow {
   position: absolute;
   top: -3.6rem;
-  z-index: 3;
+  z-index: 5;
   display: none;
   width: 2.75rem;
   height: 2.75rem;
@@ -67,6 +67,16 @@
     opacity 0.2s ease,
     border-color 0.2s ease,
     background 0.2s ease;
+}
+
+/* Starwind disables pointer events when aria-disabled; keep arrows clickable when visible */
+.products-carousel__stage .products-carousel__arrow.is-visible {
+  pointer-events: auto;
+}
+
+.products-carousel__stage .products-carousel__arrow.is-visible:disabled {
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .products-carousel__arrow--prev {

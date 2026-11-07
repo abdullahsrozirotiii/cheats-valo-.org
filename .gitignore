@@ -1,5 +1,9 @@
 # build output
 dist/
+_staging-images/
+lighthouse-home.json
+lighthouse-*.json
+_staging-utility/
 # generated types
 .astro/
 

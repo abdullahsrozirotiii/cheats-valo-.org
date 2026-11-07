@@ -1,7 +1,7 @@
 ---
 import '../styles/product-cheat-page.css';
 import { t } from '../i18n';
-import { productPages } from '../data/products';
+import { catalogProductPages } from '../data/products';
 import { cheatTierIcons, productCategoryIcons } from '../data/sectionIcons';
 import SectionHeader from './SectionHeader.astro';
 import CatalogCard from './CatalogCard.astro';
@@ -16,14 +16,14 @@ import {
 
 const s = t.products;
 
-function cardIcon(product: (typeof productPages)[number]) {
+function cardIcon(product: (typeof catalogProductPages)[number]) {
   if (product.kind === 'tier') {
     return cheatTierIcons[product.name] ?? 'crosshair';
   }
   return productCategoryIcons[product.category ?? ''] ?? 'package';
 }
 
-function cardLabel(product: (typeof productPages)[number]) {
+function cardLabel(product: (typeof catalogProductPages)[number]) {
   if (product.kind === 'tier') {
     return product.tier ?? product.name;
   }
@@ -37,17 +37,15 @@ function cardLabel(product: (typeof productPages)[number]) {
 
     <div class="products-carousel" data-products-carousel>
       <Carousel
-        autoInit
-        opts={{ align: 'start', containScroll: 'trimSnaps', dragFree: false }}
+        autoInit={false}
+        opts={{ align: 'start', containScroll: 'trimSnaps', dragFree: false, slidesToScroll: 1 }}
         class="products-carousel__root"
       >
         <div class="products-carousel__stage">
-          <CarouselPrevious class="products-carousel__arrow products-carousel__arrow--prev" hidden />
-          <CarouselNext class="products-carousel__arrow products-carousel__arrow--next is-visible" />
           <div class="products-carousel__viewport">
             <CarouselContent class="products-carousel__track">
               {
-                productPages.map((product) => (
+                catalogProductPages.map((product) => (
                   <CarouselItem class="products-carousel__slide">
                     <CatalogCard
                       class="catalog-card--carousel"
@@ -69,6 +67,8 @@ function cardLabel(product: (typeof productPages)[number]) {
               }
             </CarouselContent>
           </div>
+          <CarouselPrevious class="products-carousel__arrow products-carousel__arrow--prev" hidden />
+          <CarouselNext class="products-carousel__arrow products-carousel__arrow--next" hidden />
         </div>
       </Carousel>
     </div>

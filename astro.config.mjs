@@ -4,14 +4,17 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://dotacheats.com',
+  site: 'https://cheatsvalo.org',
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/elite/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+    '/cheats/': '/products/valorant-cheats/',
+    '/cheats/lite/': '/products/valorant-cheats/',
+    '/cheats/pro/': '/products/valorant-cheats/',
+    '/cheats/elite/': '/products/valorant-cheats/valo-cheats/',
+    '/products/valorant-cheats/lite/': '/products/valorant-cheats/valo-cheats/',
+    '/products/valorant-cheats/pro/': '/products/valorant-cheats/valo-cheats/',
+    '/products/valorant-cheats/elite/': '/products/valorant-cheats/valo-cheats/',
+    '/cheats/compare/': '/blog/valorant-lite-vs-pro/',
     '/contact/': '/support/',
   },
   compressHTML: true,

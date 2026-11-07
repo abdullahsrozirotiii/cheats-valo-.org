@@ -29,10 +29,11 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const elite = link('Dota 2 Elite', productPath('elite'));
-const lite = link('Lite tier (map hack & ESP)', ROUTES.products);
-const pro = link('Pro tier (scripts included)', ROUTES.products);
-const productsHub = link('Dota 2 products', ROUTES.products);
+const valoCheats = link('Valo Cheats (Lite • Pro • Elite)', productPath('valo-cheats'));
+const elite = link('Elite tier', productPath('valo-cheats'));
+const lite = link('Lite tier (ESP & wallhack)', productPath('valo-cheats'));
+const pro = link('Pro tier (aimbot & triggerbot)', productPath('valo-cheats'));
+const productsHub = link('Valorant products', ROUTES.products);
 const hwid = link('HWID Spoofer', productPath('hwid-spoofer'));
 const ugc = link('UGC', productPath('ugc'));
 const skin = link('Skin Changer', productPath('unlock-all'));
@@ -44,29 +45,29 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if Dota 2 cheats are online?',
-    a: a('The live status banner is on dotacheats.com and in the Discord #status channel. Always check after a Dota 2 or VAC update.'),
+    q: 'Where do I check if Valorant cheats are online?',
+    a: a('The live status banner is on cheatsvalo.org and in the Discord #status channel. Always check after a Valorant or Vanguard update.'),
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: a('Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching Dota 2.'),
-  },
-  {
-    id: 'ban-risk',
-    topic: 'safety',
-    icon: 'faqBanRisk',
-    q: 'Can I get banned using third-party dota cheats?',
-    a: a('Yes—any modification carries risk. VAC and report systems evolve. Read current status and accept the risk before use.'),
+    a: a('Your portal unlocks the loader, setup guide and config library via our secure checkout. Follow the guide before launching Valorant.'),
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('Dota 2 via Steam on Windows 10/11 64-bit only. macOS and Linux are not supported.'),
+    a: a('Valorant on PC on Windows 10/11 64-bit only. macOS and Linux are not supported.'),
+  },
+  {
+    id: 'vanguard-updates',
+    topic: 'setup',
+    icon: 'faqStatus',
+    q: 'What should I do after a Vanguard or Valorant patch?',
+    a: a('Check cheatsvalo.org and Discord #status before launching. Update the loader from the portal, test in Deathmatch, then queue Competitive when the banner shows online.'),
   },
   {
     id: 'license-move',
@@ -86,39 +87,39 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is Dota 2 map hack / ESP?',
-    a: `Map hack and hero ESP show enemy positions, wards, runes and jungle camps through fog of war. ${lite} covers awareness overlays. ${pro} and ${elite} add script modules on top.`,
-    scopes: ['lite', 'pro', 'elite'],
+    q: 'What is Valorant ESP / wallhack?',
+    a: `ESP and wallhack show agent positions, health, weapon info, and spike context through smokes and corners. ${lite} covers awareness overlays inside ${valoCheats}. ${pro} and ${elite} add aimbot and triggerbot modules on top.`,
+    scopes: ['valo-cheats', 'lite', 'pro', 'elite'],
   },
   {
     id: 'esp-vs-scripts',
     topic: 'esp',
     icon: 'faqEspVsScripts',
-    q: 'What is the difference between map hack and scripts?',
-    a: `Map hack and ESP are information overlays—they do not cast abilities. Auto Combo, Orbwalker and Smart Cast are scripts on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
+    q: 'What is the difference between ESP and combat scripts?',
+    a: `ESP and radar overlays only display information—they do not move your crosshair. Aimbot, triggerbot, and recoil scripts live on ${pro} and ${elite}. You can run awareness-only on ${lite}.`,
   },
   {
     id: 'which-tier-esp',
     topic: 'plans',
     icon: 'faqWhichTierEsp',
-    q: 'Which tier do I need for map hack only?',
-    a: `${lite} is awareness only: hero ESP, ward locator, rune timers and zoom hack. ${pro} adds scripts. ${elite} adds bots, kill steal and Skin Changer.`,
-    scopes: ['lite'],
+    q: 'Which tier do I need for ESP only?',
+    a: `${lite} is awareness only: player ESP, spike info, radar, and stream-proof overlays. ${pro} adds aimbot and triggerbot. ${elite} adds priority Vanguard patches and Unlock All preview.`,
+    scopes: ['valo-cheats', 'lite'],
   },
   {
     id: 'which-tier-scripts',
     topic: 'scripts',
     icon: 'faqWhichTierScripts',
-    q: 'Which tier includes Auto Combo scripts?',
-    a: `${pro} ships Auto Combo, Orbwalker, Smart Cast and Activator. ${elite} includes everything in Pro plus Auto Farm Bot and Auto Kill Steal. ${lite} has no script automation.`,
-    scopes: ['pro'],
+    q: 'Which tier includes aimbot and triggerbot?',
+    a: `${pro} ships aimbot, triggerbot, recoil control, and ranked presets. ${elite} includes everything in Pro plus priority patch queue and Unlock All. ${lite} has no combat automation.`,
+    scopes: ['valo-cheats', 'pro'],
   },
   {
     id: 'rank-lite-vs-pro',
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do you rank Lite vs Pro vs Elite?',
-    a: `Map awareness only → ${lite}. Ranked gunfights with scripts → ${pro}. Full bot suite and priority patches → ${elite}. Compare on each cheat page or the ${faqPage}.`,
+    a: `Map awareness only → ${lite}. Ranked gunfights with aimbot/triggerbot → ${pro}. Full suite, Unlock All, and priority patches → ${elite}. Compare on ${valoCheats} or the ${faqPage}.`,
   },
   {
     id: 'elite-slots',
@@ -126,7 +127,7 @@ export const siteFaqs: SiteFaqItem[] = [
     icon: 'faqEliteSlots',
     q: 'Why is Elite limited slots?',
     a: `Elite is a private build with direct dev support and priority patch delivery. Slot caps keep patch cycles fast. Check the status banner before checkout.`,
-    scopes: ['elite'],
+    scopes: ['valo-cheats', 'elite'],
   },
   {
     id: 'stream-proof',
@@ -139,22 +140,22 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
-    q: 'Are undetected Dota 2 cheats guaranteed?',
+    q: 'Are undetected Valorant cheats guaranteed?',
     a: a('No. Undetected is current status on the product page—not a permanent guarantee. Stop if the build shows updating, testing, or detected.'),
   },
   {
     id: 'esp-safer',
     topic: 'safety',
     icon: 'faqEspSafer',
-    q: 'Is map hack safer than scripts?',
-    a: a('ESP is quieter in replay than obvious bot patterns, but it is still a cheat. VAC does not ignore overlays because you left scripts off.'),
+    q: 'Is ESP safer than aimbot?',
+    a: a('ESP is quieter in replay than obvious snap aim, but it is still a cheat. Vanguard does not ignore overlays because you left aimbot off.'),
   },
   {
     id: 'hwid-when',
     topic: 'products',
     icon: 'faqHwidWhen',
     q: 'When do I need the HWID Spoofer?',
-    a: `Use ${hwid} when fresh Steam accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only VAC cases; see ${ugc} instead.`,
+    a: `Use ${hwid} when fresh Riot Client accounts fail instantly on one PC but work elsewhere—hardware enforcement. Not for account-only Vanguard cases; see ${ugc} instead.`,
     scopes: ['hwid-spoofer'],
   },
   {
@@ -162,14 +163,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'products',
     icon: 'faqUgcWhat',
     q: 'What is UGC?',
-    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Steam restrictions and VAC bans—custom workflows and case tracking, not a guaranteed unban service.`,
+    a: `${ugc} (Unban & Governance Control) is an appeal workspace for Riot Client restrictions and Vanguard bans—custom workflows and case tracking, not a guaranteed unban service.`,
     scopes: ['ugc'],
   },
   {
     id: 'skin-changer',
     topic: 'products',
     icon: 'faqSkinChanger',
-    q: 'Does Skin Changer modify my Steam inventory?',
+    q: 'Does Skin Changer modify my Riot Client inventory?',
     a: `${skin} previews cosmetics locally on your client. Other players see your real inventory. Included with ${elite}; available standalone for cosmetic preview only.`,
     scopes: ['unlock-all'],
   },
@@ -177,15 +178,15 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'external-loader',
     topic: 'products',
     icon: 'faqExternalLoader',
-    q: 'Is the loader injected into the Steam folder?',
-    a: `DotaCheats runs external with cloud config sync—no files injected into the Dota 2 directory. VAC risk still applies. See ${productsHub}.`,
+    q: 'Is the loader injected into the Riot Client folder?',
+    a: `CheatsValo runs external with cloud config sync—no files injected into the Valorant directory. Vanguard risk still applies. See ${productsHub}.`,
   },
   {
     id: 'blog-vs-cheats',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
     q: 'Are blog cheat codes the same as ranked cheats?',
-    a: `No. Blog articles about Valve console commands apply only in custom lobbies with cheats enabled. Ranked dota cheats are separate products—see ${lite}, ${pro} and ${elite}.`,
+    a: `No. Blog articles about Practice Range and custom games do not apply to Competitive. Ranked valorant cheats are separate products—see ${valoCheats} for Lite, Pro, and Elite in one checkout.`,
   },
   {
     id: 'blog-setup',
@@ -199,75 +200,75 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'Where do I compare plans side by side?',
-    a: `Each cheat tier page includes a compare table. The ${faqPage} collects product, cheat and blog answers in one place.`,
+    a: `${valoCheats} includes a compare table for Lite, Pro, and Elite. The ${faqPage} collects product, cheat and blog answers in one place.`,
   },
   {
     id: 'who-lite',
     topic: 'plans',
     icon: 'faqWhoLite',
     q: 'Who should stay on Lite?',
-    a: `Players who only want map awareness—ESP, wards, runes—and will not touch script automation. If you keep enabling combo scripts, buy ${pro} instead.`,
-    scopes: ['lite'],
+    a: `Players who only want map awareness—ESP, radar, spike info—and will not touch aimbot. If you keep enabling triggerbot, buy ${pro} instead.`,
+    scopes: ['valo-cheats', 'lite'],
   },
   {
     id: 'who-pro',
     topic: 'plans',
     icon: 'faqWhoPro',
     q: 'Who should buy Pro?',
-    a: `Ranked players who want Auto Combo, Orbwalker and Activator with map hack included. Pro is the most popular tier at dotacheats.com.`,
-    scopes: ['pro'],
+    a: `Ranked players who want aimbot, triggerbot, and recoil help with ESP included. Pro is the most popular tier at cheatsvalo.org.`,
+    scopes: ['valo-cheats', 'pro'],
   },
   {
     id: 'who-elite',
     topic: 'plans',
     icon: 'faqWhoElite',
     q: 'Who should buy Elite?',
-    a: `Operators who want Auto Farm Bot, Auto Kill Steal, Skin Changer and priority patch delivery when slots are open.`,
-    scopes: ['elite'],
+    a: `Operators who want the full module set, Unlock All cosmetic preview, and priority patch delivery when slots are open.`,
+    scopes: ['valo-cheats', 'elite'],
   },
   {
     id: 'vac-update',
     topic: 'safety',
     icon: 'faqVacUpdate',
-    q: 'What should I do after a VAC update?',
-    a: a('Check dotacheats.com status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
+    q: 'What should I do after a Vanguard update?',
+    a: a('Check cheatsvalo.org status and Discord #status. Do not launch until the banner shows online. Load conservative presets after any patch.'),
   },
   {
     id: 'discord-help',
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: a('Open Discord after purchase with your order email, Windows version and Dota 2 client build. Staff walk through loader setup live.'),
+    a: a('Open Discord after purchase with your order email, Windows version and Valorant client build. Staff walk through loader setup live.'),
   },
   {
     id: 'turbo-ranked',
     topic: 'plans',
     icon: 'faqTurboRanked',
-    q: 'Do tiers work in Turbo and ranked?',
-    a: `Yes—${lite}, ${pro} and ${elite} include Turbo and ranked presets in the portal. Tune distance caps and script delay before your first queue.`,
+    q: 'Do tiers work in Deathmatch and Competitive?',
+    a: `Yes—${lite}, ${pro} and ${elite} include Deathmatch and Competitive presets in the portal. Tune ESP distance and aimbot delay before your first queue.`,
   },
   {
     id: 'zoom-hack',
     topic: 'esp',
     icon: 'faqZoomHack',
-    q: 'Which tier includes zoom hack?',
-    a: `Zoom hack ships on ${lite} and carries through ${pro} and ${elite}. Extended camera helps lane vision without ward investment.`,
-    scopes: ['lite'],
+    q: 'Which tier includes FOV / zoom adjustments?',
+    a: `FOV and zoom tweaks ship on ${lite} and carry through ${pro} and ${elite}. Wider context helps post-plant reads and lineup anchors.`,
+    scopes: ['valo-cheats', 'lite'],
   },
   {
     id: 'auto-farm',
     topic: 'scripts',
     icon: 'faqAutoFarm',
-    q: 'Which tier includes Auto Farm Bot?',
-    a: `Auto Farm Bot, Lane Control AI and Auto Courier Manager are ${elite} only. ${pro} covers combat scripts without bot farming.`,
-    scopes: ['elite'],
+    q: 'Which tier includes advanced combat macros?',
+    a: `Priority patch queue, Unlock All, and extended macro slots are ${elite} only. ${pro} covers ranked aimbot and triggerbot without Elite extras.`,
+    scopes: ['valo-cheats', 'elite'],
   },
   {
     id: 'private-cheats',
     topic: 'safety',
     icon: 'faqPrivateCheats',
-    q: 'What are private Dota 2 cheats?',
-    a: a('Private means per-user keys and maintained builds—not public zip packs. DotaCheats ships portal delivery for ESP, scripts and map hack tiers.'),
+    q: 'What are private Valorant cheats?',
+    a: a('Private means per-user keys and maintained builds—not public zip packs. CheatsValo ships portal delivery for ESP, aimbot, and utility tiers.'),
   },
   {
     id: 'faq-more',
@@ -280,7 +281,7 @@ export const siteFaqs: SiteFaqItem[] = [
 
 export function getLandingFaqs(): SiteFaqItem[] {
   return siteFaqs.filter((f) =>
-    ['status', 'after-buy', 'ban-risk', 'platforms', 'license-move', 'products-page'].includes(f.id),
+    ['status', 'after-buy', 'platforms', 'license-move', 'products-page', 'vanguard-updates'].includes(f.id),
   );
 }
 
@@ -292,7 +293,7 @@ export function getAllFaqs(): SiteFaqItem[] {
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
   title: 'Browse by category',
-  subtitle: 'Filter cheat plans, map hack, scripts, products, setup and blog answers.',
+  subtitle: 'Filter cheat plans, ESP, scripts, products, setup and blog answers.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
@@ -352,15 +353,15 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-guide-start',
       topic: 'blog',
       icon: 'faqBlogGuideStart',
-      q: 'Should I use console cheat codes in ranked?',
-      a: a('No. Valve lobby cheat codes only work in custom games with cheats enabled. Ranked requires separate dota cheats from dotacheats.com tiers.'),
+      q: 'Should I use Practice Range tweaks in Competitive?',
+      a: a('No. Practice Range settings do not carry into Competitive. Ranked valorant cheats are separate products from cheatsvalo.org tiers.'),
     },
     {
       id: 'blog-guide-tier',
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which tier matches this guide?',
-      a: `Awareness guides → ${lite}. Script and combo guides → ${pro}. Bot and kill-steal topics → ${elite}.`,
+      a: `Awareness guides → ${lite}. Aimbot and triggerbot guides → ${pro}. Elite suite and Unlock All topics → ${elite}.`,
     },
     {
       id: 'blog-guide-status',
@@ -382,8 +383,8 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-setup-lobby',
       topic: 'blog',
       icon: 'faqBlogSetupLobby',
-      q: 'Should I test in a lobby first?',
-      a: a('Yes. Load conservative presets in a lobby or Turbo before ranked. Tune script delay and ESP distance caps over several sessions.'),
+      q: 'Should I test in Deathmatch first?',
+      a: a('Yes. Load conservative presets in Deathmatch or Unrated before Competitive. Tune aimbot delay and ESP distance caps over several sessions.'),
     },
   ],
   Security: [
@@ -403,7 +404,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to ${lite}, ${pro}, ${elite} and ${productsHub}. Feature lists on product pages are authoritative for checkout.`,
+    a: `Articles explain workflows and link to ${valoCheats}, utilities, and ${productsHub}. Feature lists on product pages are authoritative for checkout.`,
   },
   {
     id: 'blog-default-2',
@@ -417,7 +418,7 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault3',
     q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every Dota 2 update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
+    a: a('Re-check status after every Valorant update. Portal presets update with patch notes—reload configs instead of copying old sliders.'),
   },
 ];
 
@@ -425,22 +426,22 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
   const topicFaqs = blogTopicFaqs[tag] ?? [];
   const slugHints: SiteFaqItem[] = [];
 
-  if (slug.includes('map-hack') || slug.includes('esp') || slug.includes('ward')) {
+  if (slug.includes('map-hack') || slug.includes('esp') || slug.includes('radar')) {
     slugHints.push({
       id: 'blog-slug-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
-      q: 'Which tier covers map hack from this article?',
-      a: `${lite} includes hero ESP, ward locator and rune timers. ${pro} adds combat scripts on the same overlay stack.`,
+      q: 'Which tier covers ESP from this article?',
+      a: `${lite} includes player ESP, spike info, and radar. ${pro} adds aimbot and triggerbot on the same overlay stack.`,
     });
   }
-  if (slug.includes('script') || slug.includes('combo') || slug.includes('auto-combo')) {
+  if (slug.includes('script') || slug.includes('combo') || slug.includes('aimbot') || slug.includes('triggerbot')) {
     slugHints.push({
       id: 'blog-slug-scripts',
       topic: 'scripts',
       icon: 'faqBlogSlugScripts',
       q: 'Which tier includes the scripts in this article?',
-      a: `${pro} and ${elite} ship Auto Combo and related modules. ${lite} is map hack only.`,
+      a: `${pro} and ${elite} ship aimbot, triggerbot, and recoil modules. ${lite} is ESP only.`,
     });
   }
   if (slug.includes('hwid') || slug.includes('ban') || slug.includes('vac')) {
@@ -457,22 +458,21 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
 }
 
 export const compareRows = [
-  { feature: 'Player ESP & hero boxes', icon: 'comparePlayerEsp' as const, lite: true, pro: true, elite: true },
-  { feature: 'Ward & sentry locator', icon: 'compareWardLocator' as const, lite: true, pro: true, elite: true },
-  { feature: 'Rune spawn timers', icon: 'compareRuneTimer' as const, lite: true, pro: true, elite: true },
-  { feature: 'Zoom hack', icon: 'compareZoomHack' as const, lite: true, pro: true, elite: true },
+  { feature: 'Player ESP & agent boxes', icon: 'comparePlayerEsp' as const, lite: true, pro: true, elite: true },
+  { feature: 'Spike & plant info', icon: 'compareWardLocator' as const, lite: true, pro: true, elite: true },
+  { feature: 'Ability cooldown hints', icon: 'compareRuneTimer' as const, lite: true, pro: true, elite: true },
+  { feature: 'FOV / zoom tweaks', icon: 'compareZoomHack' as const, lite: true, pro: true, elite: true },
   { feature: 'Streamproof overlay', icon: 'compareStreamproof' as const, lite: true, pro: true, elite: true },
-  { feature: 'Minimap hack overlay', icon: 'compareMinimapHack' as const, lite: true, pro: true, elite: true },
-  { feature: 'Auto Combo scripts', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
-  { feature: 'Orbwalker & Smart Cast', icon: 'compareOrbwalker' as const, lite: false, pro: true, elite: true },
-  { feature: 'Target Selector', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
-  { feature: 'Activator (BKB/Hex/Orchid)', icon: 'compareActivator' as const, lite: false, pro: true, elite: true },
-  { feature: 'Ability radius drawing', icon: 'compareAbilityRadius' as const, lite: false, pro: true, elite: true },
-  { feature: 'Smoke alert integration', icon: 'compareSmokeAlert' as const, lite: false, pro: true, elite: true },
-  { feature: 'Auto Farm Bot', icon: 'compareAutoFarm' as const, lite: false, pro: false, elite: true },
-  { feature: 'Auto Kill Steal', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
-  { feature: 'Auto Dagon', icon: 'compareAutoDagon' as const, lite: false, pro: false, elite: true },
-  { feature: 'Full map hack suite', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
+  { feature: 'Radar & minimap overlay', icon: 'compareMinimapHack' as const, lite: true, pro: true, elite: true },
+  { feature: 'Aimbot profiles', icon: 'compareAutoCombo' as const, lite: false, pro: true, elite: true },
+  { feature: 'Triggerbot & tap fire', icon: 'compareOrbwalker' as const, lite: false, pro: true, elite: true },
+  { feature: 'Target priority', icon: 'compareTargetSelector' as const, lite: false, pro: true, elite: true },
+  { feature: 'Recoil control', icon: 'compareActivator' as const, lite: false, pro: true, elite: true },
+  { feature: 'Lineup & ability radius', icon: 'compareAbilityRadius' as const, lite: false, pro: true, elite: true },
+  { feature: 'Smoke & utility alerts', icon: 'compareSmokeAlert' as const, lite: false, pro: true, elite: true },
+  { feature: 'Ranked macro presets', icon: 'compareAutoFarm' as const, lite: false, pro: false, elite: true },
+  { feature: 'Advanced combat slots', icon: 'compareAutoKillSteal' as const, lite: false, pro: false, elite: true },
+  { feature: 'Full Valorant module suite', icon: 'compareFullMapHack' as const, lite: false, pro: false, elite: true },
   { feature: 'Skin Changer (Unlock All)', icon: 'compareSkinChanger' as const, lite: false, pro: false, elite: true },
   { feature: 'Priority patch queue', icon: 'comparePriorityPatch' as const, lite: false, pro: false, elite: true },
   { feature: 'Direct dev Discord support', icon: 'compareDevSupport' as const, lite: false, pro: false, elite: true },

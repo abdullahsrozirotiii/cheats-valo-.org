@@ -1,4 +1,6 @@
-import { createCarousel } from '@starwind-ui/runtime/carousel';
+import EmblaCarousel, { type EmblaCarouselType } from 'embla-carousel';
+
+const emblaByWrap = new WeakMap<HTMLElement, EmblaCarouselType>();
 
 function getCarouselRoot(wrap: HTMLElement): HTMLElement | null {
   return wrap.querySelector<HTMLElement>('[data-sw-carousel]');
@@ -6,40 +8,74 @@ function getCarouselRoot(wrap: HTMLElement): HTMLElement | null {
 
 function getControl(root: HTMLElement, kind: 'previous' | 'next'): HTMLButtonElement | null {
   const attr = kind === 'previous' ? 'data-sw-carousel-previous' : 'data-sw-carousel-next';
-  return (
-    root.querySelector<HTMLButtonElement>(`[${attr}]`) ??
-    root.querySelector<HTMLButtonElement>(`[data-slot="carousel-${kind}"]`)
-  );
+  return root.querySelector<HTMLButtonElement>(`[${attr}]`);
 }
 
-function syncProductsCarousel(wrap: HTMLElement, root: HTMLElement) {
-  const carousel = createCarousel(root);
+function syncArrowVisibility(root: HTMLElement, embla: EmblaCarouselType) {
   const prev = getControl(root, 'previous');
   const next = getControl(root, 'next');
-  const canPrev = carousel.canScrollPrev();
-  const canNext = carousel.canScrollNext();
+  const canPrev = embla.canScrollPrev();
+  const canNext = embla.canScrollNext();
 
-  prev?.classList.toggle('is-visible', canPrev);
-  prev?.toggleAttribute('hidden', !canPrev);
-
-  next?.classList.toggle('is-visible', canNext);
-  next?.toggleAttribute('hidden', !canNext);
+  for (const [button, visible] of [
+    [prev, canPrev],
+    [next, canNext],
+  ] as const) {
+    if (!button) continue;
+    button.classList.toggle('is-visible', visible);
+    button.toggleAttribute('hidden', !visible);
+    button.removeAttribute('disabled');
+    button.setAttribute('aria-disabled', String(!visible));
+  }
 }
 
 function bindProductsCarousel(wrap: HTMLElement) {
   const carouselRoot = getCarouselRoot(wrap);
-  if (!carouselRoot) return;
+  const viewport = carouselRoot?.querySelector<HTMLElement>('[data-sw-carousel-viewport]');
+  if (!carouselRoot || !viewport) return;
 
-  const onUpdate = () => syncProductsCarousel(wrap, carouselRoot);
+  emblaByWrap.get(wrap)?.destroy();
 
-  try {
-    const carousel = createCarousel(carouselRoot);
-    onUpdate();
-    carousel.api.on('select', onUpdate);
-    carousel.api.on('reInit', onUpdate);
-  } catch {
-    window.setTimeout(onUpdate, 50);
+  const embla = EmblaCarousel(viewport, {
+    align: 'start',
+    containScroll: 'trimSnaps',
+    slidesToScroll: 1,
+    dragFree: false,
+  });
+  emblaByWrap.set(wrap, embla);
+
+  const prev = getControl(carouselRoot, 'previous');
+  const next = getControl(carouselRoot, 'next');
+
+  const sync = () => syncArrowVisibility(carouselRoot, embla);
+
+  prev?.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (embla.canScrollPrev()) embla.scrollPrev();
+  });
+  next?.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (embla.canScrollNext()) embla.scrollNext();
+  });
+
+  embla.on('select', sync);
+  embla.on('reInit', sync);
+
+  const reInit = () => {
+    embla.reInit();
+    sync();
+  };
+
+  requestAnimationFrame(reInit);
+  window.addEventListener('resize', reInit, { passive: true });
+  window.addEventListener('load', reInit, { once: true });
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const ro = new ResizeObserver(() => reInit());
+    ro.observe(viewport);
   }
+
+  sync();
 }
 
 export function initProductsCarousels(root: ParentNode = document) {
@@ -50,36 +86,15 @@ export function initProductsCarousels(root: ParentNode = document) {
   });
 }
 
-function whenNearViewport(el: Element, cb: () => void) {
-  if (typeof IntersectionObserver === 'undefined') {
-    cb();
-    return;
+export function setupProductsCarousel() {
+  const boot = () => initProductsCarousels();
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
   }
 
-  const io = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry?.isIntersecting) return;
-      io.disconnect();
-      cb();
-    },
-    { rootMargin: '200px 0px' },
-  );
-  io.observe(el);
-}
-
-export function setupProductsCarousel() {
-  const boot = () => {
-    document.querySelectorAll<HTMLElement>('[data-products-carousel]').forEach((wrap) => {
-      whenNearViewport(wrap, () => {
-        const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number })
-          .requestIdleCallback;
-        if (idle) idle(() => initProductsCarousels());
-        else window.setTimeout(() => initProductsCarousels(), 0);
-      });
-    });
-  };
-
-  boot();
   document.addEventListener('astro:page-load', boot);
   document.addEventListener('astro:after-swap', boot);
 }
