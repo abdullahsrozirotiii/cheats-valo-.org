@@ -119,7 +119,7 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '04',
     title: 'Follow guided setup',
-    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue ranked or Turbo.',
+    desc: 'Use only the operator portal, patch loader, and setup guide. Test in a lobby, load presets, then queue Unrated or Competitive.',
   },
 ];
 

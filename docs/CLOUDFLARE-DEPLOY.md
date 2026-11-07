@@ -18,7 +18,7 @@ This repo is a **static Astro** site. Use **Cloudflare Pages (Git)**, not `npx w
 Optional build environment variables:
 
 - `INDEXNOW_KEY` — if set, post-build IndexNow ping runs; otherwise skipped.
-- `SITE` — canonical origin for sitemap `<loc>`, `<link rel="canonical">`, and hreflang. **Production:** leave unset (defaults to `https://cheatsvalo.org`). **Workers preview re-audit:** set to your preview origin, e.g. `https://cheats-valo--org.abdullahsyed2326.workers.dev` (no trailing slash), rebuild, and redeploy that preview.
+- `SITE` — canonical origin for sitemap `<loc>`, `<link rel="canonical">`, and hreflang. **Production:** leave unset (defaults to `https://cheatsvalo.org`). **Workers preview re-audit:** set to your preview origin, e.g. `https://cheats-valo--org.abdullahsyed2326.workers.dev` (no trailing slash), rebuild, and redeploy that preview. Preview builds on `*.workers.dev` emit **`noindex, nofollow`** automatically (or set `PUBLIC_FORCE_NOINDEX=true`).
 
 `astro.config.mjs`, `src/config/seo.ts`, and `scripts/finalize-sitemap.mjs` all read `SITE` at build time.
 

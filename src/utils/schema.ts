@@ -147,7 +147,47 @@ export function productSchema(input: {
   offerUrl: string;
   image?: string;
   sku?: string;
+  /** USD list prices for schema Offer / AggregateOffer. */
+  priceUsd?: number[];
 }) {
+  const prices = (input.priceUsd ?? []).filter((n) => Number.isFinite(n) && n > 0);
+  const seller = {
+    '@type': 'Organization' as const,
+    name: 'CheatsValo',
+  };
+  const checkout = offerUrl(input.offerUrl);
+
+  let offers: Record<string, unknown>;
+  if (prices.length === 0) {
+    offers = {
+      '@type': 'Offer',
+      url: checkout,
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      seller,
+    };
+  } else if (prices.length === 1) {
+    offers = {
+      '@type': 'Offer',
+      url: checkout,
+      price: prices[0],
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock',
+      seller,
+    };
+  } else {
+    offers = {
+      '@type': 'AggregateOffer',
+      url: checkout,
+      lowPrice: Math.min(...prices),
+      highPrice: Math.max(...prices),
+      priceCurrency: 'USD',
+      offerCount: prices.length,
+      availability: 'https://schema.org/InStock',
+      seller,
+    };
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -159,16 +199,7 @@ export function productSchema(input: {
       name: 'CheatsValo',
     },
     ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
-    offers: {
-      '@type': 'Offer',
-      url: offerUrl(input.offerUrl),
-      priceCurrency: 'USD',
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: 'CheatsValo',
-      },
-    },
+    offers,
   };
 }
 

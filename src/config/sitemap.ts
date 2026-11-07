@@ -20,6 +20,14 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return undefined;
   }
 
+  if (
+    path.startsWith('/cheats/') ||
+    path === '/contact/' ||
+    /^\/products\/valorant-cheats\/(lite|pro|elite)\/$/.test(path)
+  ) {
+    return undefined;
+  }
+
   item.lastmod = buildDate;
 
   if (path === '/') {

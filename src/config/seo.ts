@@ -10,6 +10,22 @@ function resolveSiteOrigin(): string {
 
 export const SITE_ORIGIN = resolveSiteOrigin();
 
+/** True when build targets a non-production host (e.g. Cloudflare *.workers.dev preview). */
+export function isPreviewDeployment(): boolean {
+  const flag = import.meta.env.PUBLIC_FORCE_NOINDEX as string | undefined;
+  if (flag === 'true' || flag === '1') return true;
+  try {
+    const host = new URL(SITE_ORIGIN).hostname.toLowerCase();
+    if (host.endsWith('.workers.dev')) return true;
+    if (host !== 'cheatsvalo.org' && host !== 'www.cheatsvalo.org' && !host.endsWith('.cheatsvalo.org')) {
+      return host.includes('pages.dev') || host.includes('workers.dev');
+    }
+  } catch {
+    /* ignore */
+  }
+  return false;
+}
+
 export const DEFAULT_OG_IMAGE = '/images/gameplay/valorant-esp-wallhack.png';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;

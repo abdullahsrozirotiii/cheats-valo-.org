@@ -1,3 +1,4 @@
+# Checkout (external)
 /go/valorant https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fvalorant 302
 /go/valorant/ https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fvalorant 302
 /go/dota-2 https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fvalorant 302
@@ -8,3 +9,33 @@
 /go/hwid-spoofer/ https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fhwid-spoofer 302
 /go/ugc https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fugc 302
 /go/ugc/ https://zadeyo.com/go/ABDULLAH?to=%2Fproducts%2Fugc 302
+
+# Legacy paths (301) — keep in sync with scripts/redirects.mjs + astro.config.mjs
+/blog /blog/ 301
+/about /about/ 301
+/contact /support/ 301
+/contact/ /support/ 301
+/support /support/ 301
+/privacy /privacy/ 301
+/terms /terms/ 301
+/faq /faq/ 301
+/cheats /products/valorant-cheats/ 301
+/cheats/ /products/valorant-cheats/ 301
+/cheats/lite /products/valorant-cheats/ 301
+/cheats/lite/ /products/valorant-cheats/ 301
+/cheats/pro /products/valorant-cheats/ 301
+/cheats/pro/ /products/valorant-cheats/ 301
+/cheats/elite /products/valorant-cheats/valo-cheats/ 301
+/cheats/elite/ /products/valorant-cheats/valo-cheats/ 301
+/cheats/compare /blog/valorant-lite-vs-pro/ 301
+/cheats/compare/ /blog/valorant-lite-vs-pro/ 301
+/products/valorant-cheats/utilities /products/valorant-cheats/utilities/ 301
+/products/valorant-cheats /products/valorant-cheats/ 301
+/products/valorant-cheats/account-recovery /products/valorant-cheats/ugc/ 301
+/products/valorant-cheats/account-recovery/ /products/valorant-cheats/ugc/ 301
+/products/valorant-cheats/lite /products/valorant-cheats/valo-cheats/ 301
+/products/valorant-cheats/lite/ /products/valorant-cheats/valo-cheats/ 301
+/products/valorant-cheats/pro /products/valorant-cheats/valo-cheats/ 301
+/products/valorant-cheats/pro/ /products/valorant-cheats/valo-cheats/ 301
+/products/valorant-cheats/elite /products/valorant-cheats/valo-cheats/ 301
+/products/valorant-cheats/elite/ /products/valorant-cheats/valo-cheats/ 301

@@ -347,10 +347,10 @@ export const en: Translations = {
       },
       {
         tag: 'Guides',
-        title: 'Valorant console commands and cheats: chat vs console',
+        title: 'Valorant ranked settings vs Custom Game options',
         slug: 'valorant-settings-for-ranked',
         image: '/images/blog/valorant-settings-for-ranked.png',
-        desc: 'Side-by-side chat cheats and console commands for gold, levels, vision and game start in private lobbies.',
+        desc: 'Custom Game toggles vs ranked sens and video settings—plus when external valorant cheats apply.',
         date: 'Aug 17, 2026',
         readTime: '8 min read',
       },

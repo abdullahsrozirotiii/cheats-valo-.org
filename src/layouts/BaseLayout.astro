@@ -12,6 +12,7 @@ import {
   GA_MEASUREMENT_ID,
   absoluteAssetUrl,
   clampMetaDescription,
+  isPreviewDeployment,
 } from '../config/seo';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -44,7 +45,8 @@ const {
 const metaDescription = clampMetaDescription(description);
 const canonical = canonicalUrl(Astro.url.pathname);
 const ogImageUrl = absoluteAssetUrl(ogImage);
-const robotsContent = noindex
+const shouldNoindex = noindex || isPreviewDeployment();
+const robotsContent = shouldNoindex
   ? 'noindex, nofollow'
   : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1';
 ---

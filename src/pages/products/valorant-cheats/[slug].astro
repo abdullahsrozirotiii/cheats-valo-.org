@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllProductSlugs, getProductPage, productHub } from '../../../data/products';
 import { resolvePageSeo } from '../../../config/seo';
+import { getProductPlans } from '../../../data/productPricing';
 import { breadcrumbSchema, productSchema } from '../../../utils/schema';
 import ProductDetail from '../../../components/ProductDetail.astro';
 
@@ -36,6 +37,7 @@ const breadcrumbs = [
       offerUrl: product.buyUrl,
       image: product.images[0]?.src,
       sku: product.slug,
+      priceUsd: getProductPlans(product.slug).map((plan) => plan.priceUsd),
     }),
     breadcrumbSchema(breadcrumbs),
   ]}
