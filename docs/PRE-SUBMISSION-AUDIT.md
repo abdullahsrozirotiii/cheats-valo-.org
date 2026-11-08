@@ -18,7 +18,7 @@
 
 ### On-page / technical SEO
 - Existing: `pageSeo.ts`, `clampMetaDescription`, homepage **valorant cheats** in title + H1.
-- **Preview duplicate risk:** [`isPreviewDeployment()`](../src/config/seo.ts) + [`BaseLayout.astro`](../src/layouts/BaseLayout.astro) set `noindex, nofollow` when `SITE` host is `*.workers.dev`, `*.pages.dev`, or `PUBLIC_FORCE_NOINDEX=true`.
+- **Preview duplicate risk:** [`functions/_middleware.ts`](../functions/_middleware.ts) forces `noindex, nofollow` on `*.pages.dev` / `*.workers.dev`; Preview env may set `PUBLIC_FORCE_NOINDEX=true` at build time via [`isPreviewDeployment()`](../src/config/seo.ts).
 
 ### Redirects (Cloudflare Pages)
 - [`public/_redirects`](../public/_redirects): **301** rules for `/cheats/*`, `/contact/` → `/support/`, legacy tier slugs → `valo-cheats/`, trailing-slash normalizations (aligned with [`scripts/redirects.mjs`](../scripts/redirects.mjs)).

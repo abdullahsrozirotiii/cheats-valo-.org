@@ -18,7 +18,10 @@ This repo is a **static Astro** site. Use **Cloudflare Pages (Git)**, not `npx w
 Optional build environment variables:
 
 - `INDEXNOW_KEY` — if set, post-build IndexNow ping runs; otherwise skipped.
-- `SITE` — canonical origin for sitemap `<loc>`, `<link rel="canonical">`, and hreflang. **Production:** leave unset (defaults to `https://cheatsvalo.org`). **Workers preview re-audit:** set to your preview origin, e.g. `https://cheats-valo--org.abdullahsyed2326.workers.dev` (no trailing slash), rebuild, and redeploy that preview. Preview builds on `*.workers.dev` emit **`noindex, nofollow`** automatically (or set `PUBLIC_FORCE_NOINDEX=true`).
+- `SITE` — canonical origin for sitemap `<loc>`, `<link rel="canonical">`, and hreflang. **Production:** leave unset (defaults to `https://cheatsvalo.org`). Use only for ad-hoc audits when you intentionally want canonicals on a non-production origin.
+- **`PUBLIC_FORCE_NOINDEX`** — set to `true` on the Cloudflare Pages **Preview** environment only (not Production). Branch preview builds then emit `noindex, nofollow` in HTML at build time.
+
+**Indexing on `*.pages.dev`:** Production builds keep `index, follow` in HTML for `cheatsvalo.org`. The same build served on `*.pages.dev` is forced to **`noindex, nofollow`** by [`functions/_middleware.ts`](../functions/_middleware.ts) (`X-Robots-Tag` + robots meta rewrite). Do not set `PUBLIC_FORCE_NOINDEX` on the Production environment.
 
 `astro.config.mjs`, `src/config/seo.ts`, and `scripts/finalize-sitemap.mjs` all read `SITE` at build time.
 

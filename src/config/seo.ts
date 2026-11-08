@@ -1,6 +1,7 @@
 import { t } from '../i18n';
 import { SITE_DOMAIN as INDEXNOW_HOST_NAME } from './site';
 import { getPageSeoEntry } from './pageSeo';
+import { shareImageSrc } from '../utils/responsiveImage';
 
 function resolveSiteOrigin(): string {
   const fromEnv = import.meta.env.SITE as string | undefined;
@@ -10,23 +11,16 @@ function resolveSiteOrigin(): string {
 
 export const SITE_ORIGIN = resolveSiteOrigin();
 
-/** True when build targets a non-production host (e.g. Cloudflare *.workers.dev preview). */
+/**
+ * Build-time noindex for non-production builds (Cloudflare Preview env: PUBLIC_FORCE_NOINDEX=true).
+ * Production HTML on *.pages.dev is handled by functions/_middleware.ts at request time.
+ */
 export function isPreviewDeployment(): boolean {
   const flag = import.meta.env.PUBLIC_FORCE_NOINDEX as string | undefined;
-  if (flag === 'true' || flag === '1') return true;
-  try {
-    const host = new URL(SITE_ORIGIN).hostname.toLowerCase();
-    if (host.endsWith('.workers.dev')) return true;
-    if (host !== 'cheatsvalo.org' && host !== 'www.cheatsvalo.org' && !host.endsWith('.cheatsvalo.org')) {
-      return host.includes('pages.dev') || host.includes('workers.dev');
-    }
-  } catch {
-    /* ignore */
-  }
-  return false;
+  return flag === 'true' || flag === '1';
 }
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/valorant-esp-wallhack.png';
+export const DEFAULT_OG_IMAGE = '/images/gameplay/valorant-esp-wallhack-960.webp';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -58,6 +52,11 @@ export function absoluteAssetUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const normalized = path.startsWith('/') ? path : `/${path}`;
   return `${SITE_ORIGIN}${normalized}`;
+}
+
+/** OG / schema / RSS image URL — deployable WebP after post-build PNG prune. */
+export function absoluteShareImageUrl(path: string): string {
+  return absoluteAssetUrl(shareImageSrc(path));
 }
 
 export function resolvePageSeo(pathname: string): { title: string; description: string } {

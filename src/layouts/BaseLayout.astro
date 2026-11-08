@@ -10,7 +10,7 @@ import {
   DEFAULT_OG_IMAGE_HEIGHT,
   DEFAULT_OG_IMAGE_WIDTH,
   GA_MEASUREMENT_ID,
-  absoluteAssetUrl,
+  absoluteShareImageUrl,
   clampMetaDescription,
   isPreviewDeployment,
 } from '../config/seo';
@@ -44,7 +44,7 @@ const {
 
 const metaDescription = clampMetaDescription(description);
 const canonical = canonicalUrl(Astro.url.pathname);
-const ogImageUrl = absoluteAssetUrl(ogImage);
+const ogImageUrl = absoluteShareImageUrl(ogImage);
 const shouldNoindex = noindex || isPreviewDeployment();
 const robotsContent = shouldNoindex
   ? 'noindex, nofollow'

@@ -1,6 +1,12 @@
 import type { FaqItem } from '../i18n/types';
 import { SUPPORT_EMAIL } from '../config/site';
-import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
+import {
+  SITE_ORIGIN,
+  absoluteAssetUrl,
+  absoluteShareImageUrl,
+  canonicalUrl,
+  getOrganizationSameAs,
+} from '../config/seo';
 
 export interface BreadcrumbItem {
   name: string;
@@ -198,7 +204,7 @@ export function productSchema(input: {
       '@type': 'Brand',
       name: 'CheatsValo',
     },
-    ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
+    ...(input.image ? { image: absoluteShareImageUrl(input.image) } : {}),
     offers,
   };
 }
@@ -234,7 +240,7 @@ export function articleSchema(input: {
     headline: input.name,
     description: input.description,
     url: canonicalUrl(input.url),
-    image: absoluteAssetUrl(input.image),
+    image: absoluteShareImageUrl(input.image),
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
     inLanguage: 'en-US',

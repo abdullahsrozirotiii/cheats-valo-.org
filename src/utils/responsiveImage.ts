@@ -26,3 +26,11 @@ export function responsiveSrcSet(src: string, widths: readonly number[] = DEFAUL
 export function defaultWebpSrc(src: string, widths: readonly number[]): string {
   return webpSrc(src, widths[0] ?? 640);
 }
+
+/** Largest WebP variant for OG / JSON-LD / RSS (survives dist PNG prune). */
+export const SHARE_IMAGE_WIDTH = 960;
+
+export function shareImageSrc(src: string): string {
+  if (/-\d+\.webp$/i.test(src)) return src;
+  return webpSrc(src, SHARE_IMAGE_WIDTH);
+}
